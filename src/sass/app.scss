@@ -15,11 +15,9 @@
 
 // Modules
 @import 
+  'modules/ui',
+  'modules/board',
   'modules/buttons';
-
-// Pages
-@import 
-  'pages/home';
 
 // Shame
 @import 'base/shame';

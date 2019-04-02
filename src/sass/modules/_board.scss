@@ -1,0 +1,63 @@
+.board {
+  $size: 32px;
+  $columns: 16;
+
+  margin: 20px auto;
+  width: $columns*$size + $columns*4;
+  height: $columns*$size + $columns*4;
+  background-color: #ddd;
+  border: solid 3px #ccc;
+  padding: 4px 0 0 4px;
+  display: grid;
+  grid-template-columns: repeat($columns, $size);
+  grid-template-rows: repeat($columns, $size);
+  grid-gap: 4px;
+}
+
+.tile {
+  background-color: #ccc;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4px;
+  font-size: 1.1em;
+  user-select: none;
+
+  &--unclicked {
+    position: relative;
+    cursor: pointer;
+    // background-color: #ccd;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #bbb;
+      z-index: 100;
+      transition: 0.3s;
+    }
+
+    &:hover::before {
+      background-color: #aeaeae;
+    }
+  }
+
+  span {
+    color: firebrick;
+  }
+
+  sup {
+    color: #1b8057;
+  }
+
+  .mine {
+    color: #333;
+    font-size: 2em;
+    font-weight: 700;
+    padding-top: 8px;
+  }
+}

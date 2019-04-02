@@ -1,1 +1,5 @@
-console.log('Hello World!')
+let game = null
+
+document.body.onload = () => {
+  game = new Game(16, 24)
+}

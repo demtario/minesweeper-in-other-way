@@ -1,0 +1,15 @@
+.ui {
+  background-color: #ddd;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 3em;
+  color: firebrick;
+  border-bottom: solid 3px #ccc;
+
+  div {
+    width: 100px;
+    text-align: center;
+  }
+}
