@@ -3,6 +3,7 @@ class Tile {
     this.coords = coords
     this.type = type
     this.game = game
+    this.marked = false
     this.revealed = false
     this.element = this.createDOM()
   }
@@ -13,6 +14,10 @@ class Tile {
     // element.innerHTML = this.calculateDistance()
     element.addEventListener('click', () => {
       this.handleClick()
+    })
+    element.addEventListener('contextmenu', (e) => {
+      e.preventDefault()
+      this.handleRightClick()
     })
     return element
   }
@@ -45,11 +50,20 @@ class Tile {
 
   handleClick() {
     if(!this.game.running) return
-    if(this.revealed) return
+    if(this.revealed || this.marked) return
     
     this.reveal()
 
     this.game.handleClick(this)
+  }
+
+  handleRightClick() {
+    this.marked = !this.marked
+
+    if(this.marked) 
+      this.element.classList.add('tile--marked')
+    else
+      this.element.classList.remove('tile--marked')
   }
 
   reveal() {

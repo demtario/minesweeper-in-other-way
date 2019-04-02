@@ -23,9 +23,9 @@
   padding-top: 4px;
   font-size: 1.1em;
   user-select: none;
+  position: relative;
 
   &--unclicked {
-    position: relative;
     cursor: pointer;
     // background-color: #ccd;
 
@@ -43,6 +43,16 @@
 
     &:hover::before {
       background-color: #aeaeae;
+    }
+  }
+
+  &--marked {
+    &::before {
+      background-color: #99cd31;
+    }
+
+    &:hover::before {
+      background-color: darken(#99cd31, 5);
     }
   }
 

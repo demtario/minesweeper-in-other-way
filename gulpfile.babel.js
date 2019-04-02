@@ -10,7 +10,6 @@ import autoprefixer from 'gulp-autoprefixer'
 import clean from 'gulp-clean-css'
 import browserSync from 'browser-sync'
 import del from 'del'
-import php from 'gulp-connect-php'
 import sourcemaps from 'gulp-sourcemaps'
 import newer from 'gulp-newer'
 import image from 'gulp-image'
@@ -42,24 +41,11 @@ const config = {
 
 // DevServer
 const devServer = (done) => {
-  php.server({
-    base: config.paths.dist.main,
-    port: 8010,
-    keepalive: true
-  });
-
-  php.server({
-    base: config.paths.dist.main,
-    keepalive: true
-  }, () => {
-    browserSync
-      .get('devServer')  
-      .init({
-        proxy: '127.0.0.1:8000',
-        baseDir: "./dist",
-        open:true,
-        notify:false
-      });
+  browserSync
+  .get('devServer')  
+  .init({
+    injectChanges: true,
+    server: config.paths.dist.main
   });
 
   done()

@@ -1,7 +1,10 @@
-# gulp-browsersync-php-template
-Based on [iceener/gulp-browsersync-project-starter](https://github.com/iceener/gulp-browsersync-project-starter) but adapted to support php, and with boilerplate structure for SASS
+# Minesweeper but in other way
+Play on [HERE](https://amedrygal.pl/minesweeper-2/)
 
-## How to run?
+## Rules
+todo
+
+## Contribution
 You need to have a php server avalible in your command line, and then run
 ```
 npm i

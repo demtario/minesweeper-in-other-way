@@ -1,5 +1,5 @@
 {
-  "name": "saper-2",
+  "name": "minesweeper-in-other-way",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -22,7 +22,6 @@
     "gulp-babel": "^7.0.1",
     "gulp-clean-css": "^4.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-connect-php": "^1.0.3",
     "gulp-image": "^4.4.1",
     "gulp-newer": "^1.4.0",
     "gulp-sass": "^4.0.2",
