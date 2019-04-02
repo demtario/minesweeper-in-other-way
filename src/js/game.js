@@ -47,6 +47,14 @@ class Game {
     alert('Game Over!')
     clearInterval(this.clock)
     this.running = false
+
+    for(let x = 0; x < this.size; x++)
+      for(let y = 0; y < this.size; y++) {
+        const tile = this.board.board[x][y]
+        if(tile.type == 'mine') {
+          tile.reveal()
+        }
+      }
   }
 
   gameWon() {

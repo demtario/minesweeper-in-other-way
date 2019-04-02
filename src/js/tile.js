@@ -3,7 +3,7 @@ class Tile {
     this.coords = coords
     this.type = type
     this.game = game
-    this.clicked = false
+    this.revealed = false
     this.element = this.createDOM()
   }
 
@@ -45,10 +45,15 @@ class Tile {
 
   handleClick() {
     if(!this.game.running) return
-    if(this.clicked) return
-    this.element.classList.remove('tile--unclicked')
-    this.clicked = true
+    if(this.revealed) return
+    
+    this.reveal()
 
     this.game.handleClick(this)
+  }
+
+  reveal() {
+    this.element.classList.remove('tile--unclicked')
+    this.revealed = true
   }
 }
