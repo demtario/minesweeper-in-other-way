@@ -1,26 +1,33 @@
 class Game {
-  constructor(size, mines) {
-    this.size = size
-    this.mines = mines
+  constructor({ size, mines, mode } = {}) {
+
+    this.config = {
+      size: size || 16,
+      mines: mines || 24,
+      mode: mode || 'standard'
+    }
+
     this.board = null
     this.running = false
 
-    document.getElementById('reset').addEventListener('click', () => {
-      clearInterval(this.clock)
-      this.start()
-    })
+    this.toReveal = mines
 
     this.start()
   }
 
   start() {
-    this.board = new Board(this.size, this.mines, this)
-    document.getElementById('mines').innerHTML = this.board.mines
+    this.board = new Board(this.config.size, this.config.mines, this)
+    document.getElementById('mines').innerHTML = this.toReveal
 
     this.revealed = 0
 
     this.clockStart()
     this.running = true
+  }
+
+  destroy() {
+    clearInterval(this.clock)
+    document.getElementById('time').innerHTML = 0
   }
 
   clockStart() {
@@ -38,9 +45,15 @@ class Game {
     else {
       this.revealed++
 
-      if(this.revealed == this.size*this.size - this.mines) this.gameWon()
+      if(this.revealed == this.config.size*this.config.size - this.config.mines) this.gameWon()
     }
-      
+  }
+
+  handleMark(tile) {
+    if(tile.marked) this.toReveal--
+    else this.toReveal++
+
+    document.getElementById('mines').innerHTML = this.toReveal < 0 ? 0 : this.toReveal
   }
 
   gameOver() {
@@ -48,8 +61,8 @@ class Game {
     clearInterval(this.clock)
     this.running = false
 
-    for(let x = 0; x < this.size; x++)
-      for(let y = 0; y < this.size; y++) {
+    for(let x = 0; x < this.config.size; x++)
+      for(let y = 0; y < this.config.size; y++) {
         const tile = this.board.board[x][y]
         if(tile.type == 'mine') {
           tile.reveal()

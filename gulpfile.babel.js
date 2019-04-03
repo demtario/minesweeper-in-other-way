@@ -90,7 +90,7 @@ const scripts = () => {
         this.emit('end')
       })
     .pipe(concat('app.js'))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.paths.dist.js));
 }

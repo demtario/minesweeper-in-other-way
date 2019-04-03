@@ -2,10 +2,16 @@
 Play on [HERE](https://amedrygal.pl/minesweeper-2/)
 
 ## Rules
-todo
+
+### Standard
+Big number represents distance to the nearest mine and small represents amounts of the mines in that distance.
+Distance is a square builded around the tile, so for example if on tile is number 1, the mine is in it's direct neighborhood in any direction.
+
+### Alternative
+Big number represents space around the tile which is clear from mines, small means the same as in standard (quantity of mines outside the clear square), but if big number is **0** the quantity of mines is not shown.
 
 ## Contribution
-You need to have a php server avalible in your command line, and then run
+Form and clone the repository and install the dependencies
 ```
 npm i
 ```

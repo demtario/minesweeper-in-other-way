@@ -17,7 +17,7 @@ class Board {
     for(let x = 0; x < this.size; x++) {
       this.board[x] = []
       for(let y = 0; y < this.size; y++) {
-        this.board[x].push(new Tile({x, y}, 'tile', this.game))
+        this.board[x].push(new Tile({x, y}, this.game))
       }
     }
 
@@ -27,7 +27,7 @@ class Board {
       let y = Math.floor(Math.random() * this.size)
       
       if(this.board[x][y].type != 'mine')
-        this.board[x][y] = new Tile({x: y}, 'mine', this.game)
+        this.board[x][y] = new Mine({x: y}, this.game)
       else i--
     }
 

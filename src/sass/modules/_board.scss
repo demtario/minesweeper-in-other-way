@@ -2,7 +2,7 @@
   $size: 32px;
   $columns: 16;
 
-  margin: 20px auto;
+  margin: 20px;
   width: $columns*$size + $columns*4;
   height: $columns*$size + $columns*4;
   background-color: #ddd;
@@ -32,13 +32,18 @@
     &::before {
       content: '';
       position: absolute;
+      box-sizing: border-box;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background-color: #bbb;
       z-index: 100;
+      text-align: center;
+      font-size: 1.4rem;
+      padding-top: 5px;
       transition: 0.3s;
+      opacity: 1 !important;
     }
 
     &:hover::before {
@@ -46,8 +51,19 @@
     }
   }
 
+  &--mine:not(.tile--marked):not(.tile--unclicked) {
+    background-color: #ca6144;
+  }
+
+  &--mine.tile--marked:not(.tile--unclicked) {
+    background-color: #99cd31;
+  }
+
   &--marked {
     &::before {
+      position: absolute;
+      content: 'F';
+      opacity: 0;
       background-color: #99cd31;
     }
 
@@ -70,4 +86,8 @@
     font-weight: 700;
     padding-top: 8px;
   }
+}
+
+.board.board--debug .tile--unclicked::before {
+  background-color: transparent;
 }

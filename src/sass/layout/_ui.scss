@@ -1,0 +1,73 @@
+.ui {
+  background-color: #ddd;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 3em;
+  color: firebrick;
+  border-bottom: solid 3px #ccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  box-sizing: border-box;
+
+  div {
+    width: 100px;
+    text-align: center;
+  }
+}
+
+.icon-btn {
+  color: firebrick;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: transparent;
+  border: 0;
+  font-size: 1rem;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.settings {
+  background-color: #333a;
+  padding: 8px;
+  border-radius: 16px;
+  color: #fff;
+  position: fixed;
+  top: 120px;
+  right: 16px;
+  width: 220px;
+  z-index: 20000;
+  transition: 0.3s;
+
+  &--hidden {
+    right: -300px;
+  }
+}
+
+.input {
+  margin-bottom: 6px;
+  label {
+    font-size: 0.8em;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 4px 6px;
+    box-sizing: border-box;
+  }
+}
